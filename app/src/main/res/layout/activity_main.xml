@@ -1,23 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/fondo_login2"
+    android:orientation="vertical"
+    android:padding="40dp"
+    tools:context=".MainActivity"
+    android:id="@+id/main">
 
-    <FrameLayout
+
+    <TextView
+        android:id="@+id/lbl_bienvenida"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text="Bienvenido al Sistema"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
-        <fragment
-            android:id="@+id/nav_host_fragment"
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="85px"
+        android:background="@drawable/icono_login"/>
+
+    <TextView
+        android:id="@+id/lbl_logueo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30px"
+        android:text="Usuario Logueo"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_email_login"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="1.5px"
+        app:hintTextColor="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:navGraph="@navigation/nav_principal"
-            app:defaultNavHost="true"
-            android:name="androidx.navigation.fragment.NavHostFragment"/>
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_password_login"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="1.5px"
+        app:hintTextColor="@color/black"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="@color/white" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_ingresar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/stilo_btn_login"
+        android:text="Ingresar"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
