@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProyectoDAM1</string>
+    <string name="app_name">Tecno Store Perú</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_prueba">Prueba</string>
@@ -14,7 +14,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_home">Inicio</string>
+    <string name="menu_inventario">Inventario</string>
+    <string name="menu_venta">Ventas</string>
+    <string name="menu_reporte">Reporte</string>
 </resources>
