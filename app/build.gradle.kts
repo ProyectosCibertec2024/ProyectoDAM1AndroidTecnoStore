@@ -45,6 +45,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.fragment.ktx)
     val nav_version = "2.7.7"
     val lifecycle_version = "2.7.0"
 
@@ -76,4 +78,7 @@ dependencies {
     implementation("com.google.firebase:firebase-storage")
     //database firestore
     implementation("com.google.firebase:firebase-firestore")
+
+
+
 }

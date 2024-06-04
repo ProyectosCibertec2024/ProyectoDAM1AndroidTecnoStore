@@ -53,8 +53,8 @@ class MainActivity : AppCompatActivity() {
                 binding.txtPasswordLogin.error = "Ingrese El Password"
                 return@setOnClickListener
             }else
-                if(password.matches(Regex("[a-zA-Z0-9á-ý@._%+-]{3,10}"))) {
-                    binding.txtPasswordLogin.error = "La contrasela debe tener entre 3 y 10 digitos"
+                if(!password.matches(Regex("[a-zA-Z0-9á-ý@._%+-]{3,15}"))) {
+                    binding.txtPasswordLogin.error = "La contraseña debe tener entre 3 y 15 digitos"
                     return@setOnClickListener
                 }
 
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                         intent.putExtra("email", email)
                         startActivity(intent)
                     }else {
-                        mensaje("Intente de nuevo, Usuario o Pasword Incorrecto")
+                        mensaje("Intente de nuevo, Usuario o Password Incorrecto")
                     }
                 }else {
                     mensaje("Complete Los Campos")

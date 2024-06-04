@@ -1,23 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.principalMenu.ui.inventario.InventarioFragment">
+    android:padding="25dp">
 
-    <TextView
-        android:id="@+id/text_gallery"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Título -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BIENVENIDO AL INVENTARIO"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="110px" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Esta sección permite gestionar los usuarios del sistema."
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGesUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="#2b3d4f"
+            android:elevation="4dp"
+            android:text="@string/nav_icon_users"
+            android:textColor="@android:color/white"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_users"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Esta sección facilita la gestión del inventario de productos."
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_icon_inventario"
+            app:icon="@drawable/ic_inventario"
+            app:iconGravity="textStart"
+            app:cornerRadius="12dp"
+            android:backgroundTint="#3398db"
+            android:textColor="@android:color/white"
+            app:iconPadding="8dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Esta sección permite gestionar los datos bancarios."
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_icon_banco"
+            app:icon="@drawable/ic_bank"
+            app:iconGravity="textStart"
+            app:cornerRadius="12dp"
+            android:backgroundTint="#2ecc70"
+            android:textColor="@android:color/white"
+            app:iconPadding="8dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Esta sección permite gestionar los proveedores de productos."
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_icon_proovedores"
+            app:icon="@drawable/ic_truck"
+            app:iconGravity="textStart"
+            app:cornerRadius="12dp"
+            android:backgroundTint="#f39c12"
+            android:textColor="@android:color/white"
+            app:iconPadding="8dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Esta sección permite gestionar las consultas realizadas."
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_icon_consulta"
+            app:iconGravity="textStart"
+            app:cornerRadius="12dp"
+            android:backgroundTint="#e74d3c"
+            android:textColor="@android:color/white"
+            app:iconPadding="8dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="30dp"
+            app:icon="@drawable/ic_search" />
+
+    </LinearLayout>
+</ScrollView>

@@ -21,4 +21,15 @@
             android:icon="@drawable/ic_menu_reporte"
             android:title="@string/menu_reporte"/>
     </group>
+    <item android:title="configuración">
+        <menu>
+            <group android:checkableBehavior="single">
+                    <item android:id="@+id/login"
+                        android:icon="@drawable/ic_cerrar_sesion"
+                        android:title="cerrar sesión"
+                        />
+            </group>
+        </menu>
+
+    </item>
 </menu>

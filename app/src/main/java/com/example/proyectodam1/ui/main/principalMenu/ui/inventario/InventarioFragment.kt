@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.proyectodam1.R
 import com.example.proyectodam1.databinding.FragmentInventarioBinding
+
 
 class InventarioFragment : Fragment() {
 
@@ -26,15 +28,17 @@ class InventarioFragment : Fragment() {
         _binding = FragmentInventarioBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
         return root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+    val btnGesUsuario: Button = requireView().findViewById(R.id.btnGesUsuario)
+
+
+
 }
