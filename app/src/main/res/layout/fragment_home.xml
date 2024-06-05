@@ -137,14 +137,14 @@
                 android:id="@+id/iv_twitter"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_twitter"
+                android:src="@drawable/ic_twiter_2"
                 android:layout_margin="8dp" />
 
             <ImageView
                 android:id="@+id/iv_instagram"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_instagram"
+                android:src="@drawable/ic_instragram_2"
                 android:layout_margin="8dp"
                 />
         </LinearLayout>

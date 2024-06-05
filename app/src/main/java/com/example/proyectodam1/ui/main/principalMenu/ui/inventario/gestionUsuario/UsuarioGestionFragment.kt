@@ -7,27 +7,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.proyectodam1.R
+import com.example.proyectodam1.databinding.FragmentUsuarioGestionBinding
 
 class UsuarioGestionFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = UsuarioGestionFragment()
-    }
-
-    private val viewModel: UsuarioGestionViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
+    private var binding : FragmentUsuarioGestionBinding ? = null
+    val _binding get() = binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_usuario_gestion, container, false)
+        binding = FragmentUsuarioGestionBinding.inflate(inflater, container, false)
+        return _binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
     
 }

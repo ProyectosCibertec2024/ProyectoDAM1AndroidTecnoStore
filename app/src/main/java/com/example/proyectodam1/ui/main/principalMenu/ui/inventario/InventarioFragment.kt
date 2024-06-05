@@ -14,7 +14,6 @@ import com.example.proyectodam1.databinding.FragmentInventarioBinding
 class InventarioFragment : Fragment() {
 
     private var _binding: FragmentInventarioBinding ? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,23 +21,18 @@ class InventarioFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val galleryViewModel =
-            ViewModelProvider(this).get(InventarioViewModel::class.java)
 
         _binding = FragmentInventarioBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        return root
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-    val btnGesUsuario: Button = requireView().findViewById(R.id.btnGesUsuario)
-
-
-
 }

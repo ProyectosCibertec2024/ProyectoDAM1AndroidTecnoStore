@@ -19,6 +19,11 @@ class ReporteFragment : Fragment() {
         return _binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
