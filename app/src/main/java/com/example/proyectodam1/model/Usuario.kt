@@ -8,7 +8,9 @@ class Usuario (
         val apellido : String ? = null,
         val email : String ? = null,
         val password : String ? = null,
-        val rol : String ? = null
+        val rol : String ? = null,
+        val nomimg : String ? = null,
+        val urlimg : String ? = null
 ):Serializable{
-    constructor():this("","","","","","")
+    constructor():this("","","","","","","","")
 }

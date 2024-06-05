@@ -15,7 +15,11 @@
         android:id="@+id/nav_inventary"
         android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.InventarioFragment"
         android:label="@string/menu_inventario"
-        tools:layout="@layout/fragment_inventario" />
+        tools:layout="@layout/fragment_inventario" >
+        <action
+            android:id="@+id/action_nav_inventary_to_nav_gestion_usuario"
+            app:destination="@id/nav_gestion_usuario" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_venta"
@@ -27,4 +31,10 @@
         android:name="com.example.proyectodam1.ui.main.principalMenu.ui.reporte.ReporteFragment"
         android:label="@string/menu_reporte"
         tools:layout="@layout/fragment_reporte" />
+
+    <fragment
+        android:id="@+id/nav_gestion_usuario"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionUsuario.UsuarioGestionFragment"
+        android:label="Gestión de Usuario"
+        tools:layout="@layout/fragment_usuario_gestion" />
 </navigation>

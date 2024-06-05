@@ -2,9 +2,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="25dp">
+    android:padding="25dp"
+    android:scrollbars="none"
+    android:fadeScrollbars="false">
 
     <LinearLayout
+        android:layout_marginTop="35sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -91,6 +94,7 @@
             android:textAlignment="center"
             android:textSize="14sp"
             android:textColor="@color/black" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRoles"
             android:layout_width="match_parent"
@@ -196,6 +200,6 @@
             android:text="Función: Permite ver detalles sobre los proveedores, como su nombre, información de contacto, términos de pago, etc. Los usuarios pueden ver qué productos están asociados con cada proveedor y también pueden agregar, editar o eliminar proveedores."
             android:textSize="14sp"
             android:textColor="@color/black"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="50dp" />
     </LinearLayout>
 </ScrollView>

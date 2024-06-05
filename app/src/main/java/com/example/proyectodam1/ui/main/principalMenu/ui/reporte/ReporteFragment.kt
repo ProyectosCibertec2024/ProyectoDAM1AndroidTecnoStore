@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.proyectodam1.R
 import com.example.proyectodam1.databinding.FragmentReporteBinding
 
 class ReporteFragment : Fragment() {
