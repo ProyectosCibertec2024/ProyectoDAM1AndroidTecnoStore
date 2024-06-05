@@ -70,24 +70,33 @@ class PrincipalMenuActivity : AppCompatActivity() {
                 val inventario = menu.findItem(R.id.nav_inventary)
                 val venta = menu.findItem(R.id.nav_venta)
                 val reporte = menu.findItem(R.id.nav_report)
-                rolUsuario = it?.rol
-                Log.i("PRINCIPAL","ROL: ${it?.rol}")
                 val nomuser = findViewById<TextView>(R.id.txtnomusuariologin)
                 val roluser = findViewById<TextView>(R.id.txtrolusuariologin)
                 val imguser = findViewById<ImageView>(R.id.imageView)
                 nomuser.text = it?.nombre
-                roluser.text = it?.rol
                 Glide.with(this).load(it?.urlimg).into(imguser)
-                if(rolUsuario == "admin") {
-                    inicio.isVisible = true
-                    inventario.isVisible = true
-                    venta.isVisible = true
-                    reporte.isVisible = true
-                }else {
-                    inicio.isVisible = true
-                    inventario.isVisible = false
-                    venta.isVisible = false
-                    reporte.isVisible = true
+                it?.rol?.get()?.addOnSuccessListener { doc ->
+                    if(doc != null && doc.exists()) {
+                        rolUsuario = doc.id
+                        val rol = doc.getString("nomrol")
+                        Log.i("ROL: ", "USUARIO: $rol")
+                        roluser.text = rol
+                        if(rol == "admin") {
+                            inicio.isVisible = true
+                            inventario.isVisible = true
+                            venta.isVisible = true
+                            reporte.isVisible = true
+                        }else {
+                            inicio.isVisible = true
+                            inventario.isVisible = false
+                            venta.isVisible = false
+                            reporte.isVisible = true
+                        }
+                    }else {
+                        Log.e("Usuario", "No Se Identifico, el rol no existe")
+                    }
+                }?.addOnFailureListener {
+                    Log.e("USUARIO", "ERROR AL OBTENER ROL : " + it.localizedMessage)
                 }
             }
         }
