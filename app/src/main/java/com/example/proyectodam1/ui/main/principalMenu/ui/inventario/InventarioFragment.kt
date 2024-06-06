@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.proyectodam1.databinding.FragmentInventarioBinding
+import com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.GestionInventarioFragmentDirections
 
 class InventarioFragment : Fragment() {
 
@@ -26,12 +27,15 @@ class InventarioFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ingresarGestionUsuario();
+        ingresar()
     }
 
-    private fun ingresarGestionUsuario() {
+    private fun ingresar() {
         binding.btnGesUsuario.setOnClickListener {
             findNavController().navigate(InventarioFragmentDirections.actionNavInventaryToNavGestionUsuario())
+        }
+        binding.btnGesInventario.setOnClickListener {
+            findNavController().navigate(InventarioFragmentDirections.actionNavInventaryToGestionInventarioFragment())
         }
     }
 

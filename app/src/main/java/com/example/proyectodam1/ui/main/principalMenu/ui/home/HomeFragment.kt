@@ -1,6 +1,5 @@
 package com.example.proyectodam1.ui.main.principalMenu.ui.home
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -34,8 +33,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun obtenerLinks() {
-        val twitter = "https://x.com/";
         binding.ivTwitter.setOnClickListener {
+            val twitter = "https://x.com/";
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Desea Continuar?")
                 .setMessage("Se Redirigira a la app twitter")
@@ -43,11 +42,12 @@ class HomeFragment : Fragment() {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.data = Uri.parse(twitter)
                     startActivity(intent)
-                }
+                }.setNegativeButton("Cancelar", null)
+                .show()
         }
 
-        val instagram = "https://www.instagram.com/";
-        binding.ivTwitter.setOnClickListener {
+        binding.ivInstagram.setOnClickListener {
+            val instagram = "https://www.instagram.com/";
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Desea Continuar?")
                 .setMessage("Se Redirigira a la app instagram")
@@ -55,11 +55,12 @@ class HomeFragment : Fragment() {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.data = Uri.parse(instagram)
                     startActivity(intent)
-                }
+                }.setNegativeButton("Cancelar", null)
+                .show()
         }
 
-        val facebook = "https://www.facebook.com/";
         binding.ivFacebook.setOnClickListener {
+            val facebook = "https://www.facebook.com/";
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Desea Continuar?")
                 .setMessage("Se Redirigira a la app Facebook")
@@ -73,8 +74,8 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 }

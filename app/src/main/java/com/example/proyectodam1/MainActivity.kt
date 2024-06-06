@@ -65,6 +65,8 @@ class MainActivity : AppCompatActivity() {
                         val intent = Intent(this, PrincipalMenuActivity::class.java)
                         intent.putExtra("email", email)
                         startActivity(intent)
+                        binding.txtEmailLogin.editText?.text = null
+                        binding.txtPasswordLogin.editText?.text = null
                     }else {
                         mensaje("Intente de nuevo, Usuario o Password Incorrecto")
                     }
