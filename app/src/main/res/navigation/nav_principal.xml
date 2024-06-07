@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_gestionInventarioFragment_to_clienteFragment"
             app:destination="@id/clienteFragment" />
+        <action
+            android:id="@+id/action_gestionInventarioFragment_to_categoriaFragment"
+            app:destination="@id/categoriaFragment" />
     </fragment>
     <fragment
         android:id="@+id/clienteFragment"
@@ -78,5 +81,35 @@
         <action
             android:id="@+id/action_clienteModificarFragment_to_clienteFragment"
             app:destination="@id/clienteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriaFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.categoria.CategoriaFragment"
+        android:label="Categoria"
+        tools:layout="@layout/fragment_categoria" >
+        <action
+            android:id="@+id/action_categoriaFragment_to_categoriaRegistrarFragment"
+            app:destination="@id/categoriaRegistrarFragment" />
+        <action
+            android:id="@+id/action_categoriaFragment_to_categoriaModificarFragment"
+            app:destination="@id/categoriaModificarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriaRegistrarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.categoria.CategoriaRegistrarFragment"
+        android:label="Insertar Categoria"
+        tools:layout="@layout/fragment_categoria_registrar">
+        <action
+            android:id="@+id/action_categoriaRegistrarFragment_to_categoriaFragment"
+            app:destination="@id/categoriaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriaModificarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.categoria.CategoriaModificarFragment"
+        android:label="Modificar Categoria"
+        tools:layout="@layout/fragment_categoria_modificar">
+        <action
+            android:id="@+id/action_categoriaModificarFragment_to_categoriaFragment"
+            app:destination="@id/categoriaFragment" />
     </fragment>
 </navigation>

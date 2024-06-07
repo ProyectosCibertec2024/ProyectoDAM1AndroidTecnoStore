@@ -42,20 +42,20 @@ class ClienteModificarFragment : Fragment() {
         val direclibun = arguments?.getString("direcli")
         val fonoclibun = arguments?.getString("fonocli")
 
-        binding.txtidclimodificar.editText?.setText(idbun).toString()
-        binding.txtnomclimodificar.editText?.setText(nomclibun).toString()
-        binding.txtapeclimodificar.editText?.setText(apeclibun).toString()
-        binding.txtdniclimodificar.editText?.setText(dniclibun).toString()
-        binding.txtdireccionclimodificar.editText?.setText(direclibun).toString()
-        binding.txttelefonoclimodificar.editText?.setText(fonoclibun).toString()
+        binding.txtidclimodificar.editText?.setText(idbun).toString().trim()
+        binding.txtnomclimodificar.editText?.setText(nomclibun).toString().trim()
+        binding.txtapeclimodificar.editText?.setText(apeclibun).toString().trim()
+        binding.txtdniclimodificar.editText?.setText(dniclibun).toString().trim()
+        binding.txtdireccionclimodificar.editText?.setText(direclibun).toString().trim()
+        binding.txttelefonoclimodificar.editText?.setText(fonoclibun).toString().trim()
 
         binding.btnmodificarcliente.setOnClickListener {
-            val id = binding.txtidclimodificar.editText?.text.toString()
-            val nomcli = binding.txtnomclimodificar.editText?.text.toString()
-            val apecli = binding.txtapeclimodificar.editText?.text.toString()
-            val dnicli = binding.txtdniclimodificar.editText?.text.toString()
-            val direccli = binding.txtdireccionclimodificar.editText?.text.toString()
-            val fono = binding.txttelefonoclimodificar.editText?.text.toString()
+            val id = binding.txtidclimodificar.editText?.text.toString().trim()
+            val nomcli = binding.txtnomclimodificar.editText?.text.toString().trim()
+            val apecli = binding.txtapeclimodificar.editText?.text.toString().trim()
+            val dnicli = binding.txtdniclimodificar.editText?.text.toString().trim()
+            val direccli = binding.txtdireccionclimodificar.editText?.text.toString().trim()
+            val fono = binding.txttelefonoclimodificar.editText?.text.toString().trim()
 
             if(id.isEmpty()) {
                 Log.i("ID","ID NULL: $id")

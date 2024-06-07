@@ -44,11 +44,11 @@ class ClienteRegistrarFragment : Fragment() {
             binding.txtdireccioncliregistrar.error = null
             binding.txttelefonocliregistrar.error = null
 
-            val nomcli = binding.txtnomcliregistrar.editText?.text.toString()
-            val apecli = binding.txtapecliregistrar.editText?.text.toString()
-            val dnicli = binding.txtdnicliregistrar.editText?.text.toString()
-            val direccli = binding.txtdireccioncliregistrar.editText?.text.toString()
-            val fono = binding.txttelefonocliregistrar.editText?.text.toString()
+            val nomcli = binding.txtnomcliregistrar.editText?.text.toString().trim()
+            val apecli = binding.txtapecliregistrar.editText?.text.toString().trim()
+            val dnicli = binding.txtdnicliregistrar.editText?.text.toString().trim()
+            val direccli = binding.txtdireccioncliregistrar.editText?.text.toString().trim()
+            val fono = binding.txttelefonocliregistrar.editText?.text.toString().trim()
 
             if(nomcli.isEmpty()) {
                 binding.txtnomcliregistrar.error = "Campo Requerido"
