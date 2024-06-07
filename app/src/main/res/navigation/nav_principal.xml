@@ -53,5 +53,30 @@
         android:id="@+id/clienteFragment"
         android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.cliente.ClienteFragment"
         android:label="Cliente"
-        tools:layout="@layout/fragment_cliente" />
+        tools:layout="@layout/fragment_cliente" >
+        <action
+            android:id="@+id/action_clienteFragment_to_clienteRegistrarFragment"
+            app:destination="@id/clienteRegistrarFragment" />
+        <action
+            android:id="@+id/action_clienteFragment_to_clienteModificarFragment"
+            app:destination="@id/clienteModificarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clienteRegistrarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.cliente.ClienteRegistrarFragment"
+        android:label="Insertar Cliente"
+        tools:layout="@layout/fragment_cliente_registrar" >
+        <action
+            android:id="@+id/action_clienteRegistrarFragment_to_clienteFragment"
+            app:destination="@id/clienteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clienteModificarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.cliente.ClienteModificarFragment"
+        android:label="Modificar Cliente"
+        tools:layout="@layout/fragment_cliente_modificar">
+        <action
+            android:id="@+id/action_clienteModificarFragment_to_clienteFragment"
+            app:destination="@id/clienteFragment" />
+    </fragment>
 </navigation>

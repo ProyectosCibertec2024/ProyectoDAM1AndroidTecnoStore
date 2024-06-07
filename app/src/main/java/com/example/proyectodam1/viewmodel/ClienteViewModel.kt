@@ -12,5 +12,21 @@ class ClienteViewModel(private val repository: ClienteRepository) : ViewModel() 
         }
     }
 
+    fun agregarCliente(cliente: Cliente, rs : (Boolean) -> Unit) {
+        repository.agregarClientes(cliente) {
+            rs(it)
+        }
+    }
 
+    fun actualizarCliente(id : String, cliente: Cliente, rs: (Boolean) -> Unit) {
+        repository.actualizarCliente(id, cliente) {
+            rs(it)
+        }
+    }
+
+    fun eliminarCliente(id : String, rs: (Boolean) -> Unit) {
+        repository.eliminarCliente(id) {
+            rs(it)
+        }
+    }
 }

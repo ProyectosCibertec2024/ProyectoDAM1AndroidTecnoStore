@@ -3,7 +3,7 @@ package com.example.proyectodam1.model
 import java.io.Serializable
 
 class Cliente (
-    var id : String,
+    var id : String ? = null,
     val nomcli : String,
     val apecli : String,
     val dnicliente : String,

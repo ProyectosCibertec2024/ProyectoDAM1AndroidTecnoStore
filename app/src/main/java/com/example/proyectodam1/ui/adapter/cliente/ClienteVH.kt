@@ -10,6 +10,5 @@ class ClienteVH(val binding : ItemClienteBinding) : ViewHolder(binding.root) {
         binding.lblNombreCliente.text = cliente.nomcli
         binding.lblApellidoCliente.text = cliente.apecli
     }
-
 }
 
