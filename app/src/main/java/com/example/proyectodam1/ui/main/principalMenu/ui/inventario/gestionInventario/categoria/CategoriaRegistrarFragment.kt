@@ -51,7 +51,7 @@ class CategoriaRegistrarFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            val categoria = Categoria(null, nomcat)
+            val categoria = Categoria("", nomcat)
             categoriaViewModel.agregarCategoria(categoria) {
                 if(it) {
                     mensaje("Guardado Exitosamente a $nomcat")

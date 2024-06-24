@@ -28,4 +28,10 @@ class CategoriaRepository(private val dataSource: CategoriaDataSource) {
             rs(it)
         }
     }
+
+    fun obtenerCategoriaxId(id : String, rs: (categoria : Categoria?) -> Unit) {
+        dataSource.obtenerCategoriaxId(id) { cat ->
+            rs(cat)
+        }
+    }
 }

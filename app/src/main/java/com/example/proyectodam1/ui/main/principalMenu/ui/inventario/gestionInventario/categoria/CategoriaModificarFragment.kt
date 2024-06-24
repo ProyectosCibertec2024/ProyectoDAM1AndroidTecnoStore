@@ -57,7 +57,7 @@ class CategoriaModificarFragment : Fragment() {
                 binding.txtnomcategoriaremodificar.error = "Solo Letras"
                 return@setOnClickListener
             }
-            val categoria = Categoria(id,nomcat)
+            val categoria = Categoria(id.toString(),nomcat)
             categoriaViewModel.actualizarCategoria(idcat, categoria) {
                 if(it) {
                     mensaje("Guardado Exitosamente a $nomcat")

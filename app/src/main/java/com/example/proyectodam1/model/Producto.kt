@@ -8,10 +8,11 @@ class Producto(
     val idcategoria : DocumentReference? = null,
     val idproveedor : DocumentReference ? = null,
     val marca : String,
-    val nomimg : String,
+    val nombreimg : String,
+    val fechareg : String,
     val precio : Double,
     val stock : Int,
     val urlimg : String
 ) : Serializable {
-    constructor() : this("",null,null,"","",0.0,0,"")
+    constructor() : this("",null,null,"","","",0.0,0,"")
 }

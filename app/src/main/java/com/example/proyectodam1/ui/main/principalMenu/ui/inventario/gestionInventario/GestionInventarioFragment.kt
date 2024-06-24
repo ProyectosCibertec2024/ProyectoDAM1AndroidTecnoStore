@@ -35,6 +35,9 @@ class GestionInventarioFragment : Fragment() {
         _binding.btngesinventariocategoria.setOnClickListener {
             findNavController().navigate(GestionInventarioFragmentDirections.actionGestionInventarioFragmentToCategoriaFragment())
         }
+        _binding.btngesinventarioproducto.setOnClickListener {
+            findNavController().navigate(GestionInventarioFragmentDirections.actionGestionInventarioFragmentToProductoFragment())
+        }
     }
 
     override fun onDestroyView() {

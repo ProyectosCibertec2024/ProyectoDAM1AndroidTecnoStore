@@ -59,4 +59,20 @@ class CategoriaDataSource(private val db : FirebaseFirestore) {
                 Log.e("Error","CATEGORIA DELETE : ${it.localizedMessage}")
             }
     }
+
+    fun obtenerCategoriaxId(id : String, rs: (categoria : Categoria?) -> Unit) {
+        db.collection(coleccion).document(id).get()
+            .addOnSuccessListener { doc ->
+                if(doc.exists()) {
+                    val categoria = doc.toObject(Categoria::class.java)
+                    rs(categoria!!)
+                }else {
+                    rs(null)
+                }
+            }
+            .addOnFailureListener {
+                rs(null)
+                Log.e("Error","CATEGORIA DELETE : ${it.localizedMessage}")
+            }
+    }
 }

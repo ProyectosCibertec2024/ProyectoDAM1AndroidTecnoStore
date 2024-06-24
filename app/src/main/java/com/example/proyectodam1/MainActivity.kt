@@ -2,6 +2,7 @@ package com.example.proyectodam1
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -14,6 +15,9 @@ import com.example.proyectodam1.repository.UsuarioRepository
 import com.example.proyectodam1.ui.main.principalMenu.PrincipalMenuActivity
 import com.example.proyectodam1.viewmodel.UsuarioViewModel
 import com.example.proyectodam1.viewmodel.UsuarioViewModelFactory
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private val usuarioViewModel by viewModels<UsuarioViewModel> {
         UsuarioViewModelFactory(UsuarioRepository(UsuarioDataSource(FirebaseFirestore.getInstance())))
     }
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        auth = Firebase.auth
 
         binding.btnIngresar.setOnClickListener {
             binding.txtEmailLogin.error = null
@@ -75,7 +82,23 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
 
+    public override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            val email = currentUser.email
+            if (email != null) {
+                Log.i("EMAILLLLLLL", email)
+                usuarioViewModel.obtenerRolUsuario(email) { user ->
+                    val intent = Intent(this, PrincipalMenuActivity::class.java)
+                    intent.putExtra("email", email)
+                    startActivity(intent)
+                    finish()
+                }
+            }
+        }
     }
 
     private fun mensaje(men: String) {

@@ -51,6 +51,9 @@
         <action
             android:id="@+id/action_gestionInventarioFragment_to_categoriaFragment"
             app:destination="@id/categoriaFragment" />
+        <action
+            android:id="@+id/action_gestionInventarioFragment_to_productoFragment"
+            app:destination="@id/productoFragment" />
     </fragment>
     <fragment
         android:id="@+id/clienteFragment"
@@ -111,5 +114,35 @@
         <action
             android:id="@+id/action_categoriaModificarFragment_to_categoriaFragment"
             app:destination="@id/categoriaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productoFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.producto.ProductoFragment"
+        android:label="Producto"
+        tools:layout="@layout/fragment_producto" >
+        <action
+            android:id="@+id/action_productoFragment_to_productoRegistrarFragment"
+            app:destination="@id/productoRegistrarFragment" />
+        <action
+            android:id="@+id/action_productoFragment_to_productoModificarFragment"
+            app:destination="@id/productoModificarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productoRegistrarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.producto.ProductoRegistrarFragment"
+        android:label="Insertar Producto"
+        tools:layout="@layout/fragment_producto_registrar">
+        <action
+            android:id="@+id/action_productoRegistrarFragment_to_productoFragment"
+            app:destination="@id/productoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productoModificarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.producto.ProductoModificarFragment"
+        android:label="Modificar Producto"
+        tools:layout="@layout/fragment_producto_modificar">
+        <action
+            android:id="@+id/action_productoModificarFragment_to_productoFragment"
+            app:destination="@id/productoFragment" />
     </fragment>
 </navigation>

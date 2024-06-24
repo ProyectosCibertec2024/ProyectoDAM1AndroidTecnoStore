@@ -29,4 +29,10 @@ class CategoriaViewModel(private val repository: CategoriaRepository) : ViewMode
             rs(it)
         }
     }
+
+    fun obtenerCategoriaxId(id : String, rs: (categoria : Categoria?) -> Unit) {
+        repository.obtenerCategoriaxId(id) { cat ->
+            rs(cat)
+        }
+    }
 }
