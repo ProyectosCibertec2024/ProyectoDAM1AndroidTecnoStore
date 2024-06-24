@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_nav_inventary_to_gestionInventarioFragment"
             app:destination="@id/gestionInventarioFragment" />
+        <action
+            android:id="@+id/action_nav_inventary_to_proveedorFragment"
+            app:destination="@id/proveedorFragment" />
     </fragment>
 
     <fragment
@@ -144,5 +147,35 @@
         <action
             android:id="@+id/action_productoModificarFragment_to_productoFragment"
             app:destination="@id/productoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/proveedorFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionProveedores.ProveedorFragment"
+        android:label="Proveedor"
+        tools:layout="@layout/fragment_proveedor" >
+        <action
+            android:id="@+id/action_proveedorFragment_to_proveedorRegistrarFragment"
+            app:destination="@id/proveedorRegistrarFragment" />
+        <action
+            android:id="@+id/action_proveedorFragment_to_proveedorModificarFragment"
+            app:destination="@id/proveedorModificarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/proveedorRegistrarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionProveedores.ProveedorRegistrarFragment"
+        android:label="Insertar Proveedor"
+        tools:layout="@layout/fragment_proveedor_registrar">
+        <action
+            android:id="@+id/action_proveedorRegistrarFragment_to_proveedorFragment"
+            app:destination="@id/proveedorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/proveedorModificarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionProveedores.ProveedorModificarFragment"
+        android:label="Modificar Proveedor"
+        tools:layout="@layout/fragment_proveedor_modificar">
+        <action
+            android:id="@+id/action_proveedorModificarFragment_to_proveedorFragment"
+            app:destination="@id/proveedorFragment" />
     </fragment>
 </navigation>
