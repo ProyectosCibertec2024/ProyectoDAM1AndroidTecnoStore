@@ -1,5 +1,6 @@
 package com.example.proyectodam1.ui.main.principalMenu
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
@@ -15,16 +16,21 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.Group
 import com.bumptech.glide.Glide
+import com.example.proyectodam1.MainActivity
 import com.example.proyectodam1.R
 import com.example.proyectodam1.databinding.ActivityPrincipalMenuBinding
 import com.example.proyectodam1.network.UsuarioDataSource
 import com.example.proyectodam1.repository.UsuarioRepository
 import com.example.proyectodam1.viewmodel.UsuarioViewModel
 import com.example.proyectodam1.viewmodel.UsuarioViewModelFactory
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class PrincipalMenuActivity : AppCompatActivity() {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding : ActivityPrincipalMenuBinding
     private lateinit var navigationView: NavigationView
@@ -42,6 +48,7 @@ class PrincipalMenuActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarPrincipalMenu.toolbar)
 
+        auth = Firebase.auth
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_principal_menu)
@@ -55,6 +62,20 @@ class PrincipalMenuActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         rolesLogin()
+        cerrarSesion()
+    }
+
+    private fun cerrarSesion() {
+        navigationView = findViewById(R.id.nav_view)
+        val menu = navigationView.menu
+        val cerrarSesion = menu.findItem(R.id.login)
+        cerrarSesion.setOnMenuItemClickListener {
+            auth.signOut()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+            true
+        }
     }
 
     private fun rolesLogin() {
@@ -70,24 +91,33 @@ class PrincipalMenuActivity : AppCompatActivity() {
                 val inventario = menu.findItem(R.id.nav_inventary)
                 val venta = menu.findItem(R.id.nav_venta)
                 val reporte = menu.findItem(R.id.nav_report)
-                rolUsuario = it?.rol
-                Log.i("PRINCIPAL","ROL: ${it?.rol}")
                 val nomuser = findViewById<TextView>(R.id.txtnomusuariologin)
                 val roluser = findViewById<TextView>(R.id.txtrolusuariologin)
                 val imguser = findViewById<ImageView>(R.id.imageView)
                 nomuser.text = it?.nombre
-                roluser.text = it?.rol
                 Glide.with(this).load(it?.urlimg).into(imguser)
-                if(rolUsuario == "admin") {
-                    inicio.isVisible = true
-                    inventario.isVisible = true
-                    venta.isVisible = true
-                    reporte.isVisible = true
-                }else {
-                    inicio.isVisible = true
-                    inventario.isVisible = false
-                    venta.isVisible = false
-                    reporte.isVisible = true
+                it?.rol?.get()?.addOnSuccessListener { doc ->
+                    if(doc != null && doc.exists()) {
+                        rolUsuario = doc.id
+                        val rol = doc.getString("nomrol")
+                        Log.i("ROL: ", "USUARIO: $rol")
+                        roluser.text = rol
+                        if(rol == "admin") {
+                            inicio.isVisible = true
+                            inventario.isVisible = true
+                            venta.isVisible = true
+                            reporte.isVisible = true
+                        }else {
+                            inicio.isVisible = true
+                            inventario.isVisible = false
+                            venta.isVisible = false
+                            reporte.isVisible = true
+                        }
+                    }else {
+                        Log.e("Usuario", "No Se Identifico, el rol no existe")
+                    }
+                }?.addOnFailureListener {
+                    Log.e("USUARIO", "ERROR AL OBTENER ROL : " + it.localizedMessage)
                 }
             }
         }

@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_nav_inventary_to_nav_gestion_usuario"
             app:destination="@id/nav_gestion_usuario" />
+        <action
+            android:id="@+id/action_nav_inventary_to_gestionInventarioFragment"
+            app:destination="@id/gestionInventarioFragment" />
     </fragment>
 
     <fragment
@@ -37,4 +40,109 @@
         android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionUsuario.UsuarioGestionFragment"
         android:label="Gestión de Usuario"
         tools:layout="@layout/fragment_usuario_gestion" />
+    <fragment
+        android:id="@+id/gestionInventarioFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.GestionInventarioFragment"
+        android:label="Gestion Inventario"
+        tools:layout="@layout/fragment_gestion_inventario">
+        <action
+            android:id="@+id/action_gestionInventarioFragment_to_clienteFragment"
+            app:destination="@id/clienteFragment" />
+        <action
+            android:id="@+id/action_gestionInventarioFragment_to_categoriaFragment"
+            app:destination="@id/categoriaFragment" />
+        <action
+            android:id="@+id/action_gestionInventarioFragment_to_productoFragment"
+            app:destination="@id/productoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clienteFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.cliente.ClienteFragment"
+        android:label="Cliente"
+        tools:layout="@layout/fragment_cliente" >
+        <action
+            android:id="@+id/action_clienteFragment_to_clienteRegistrarFragment"
+            app:destination="@id/clienteRegistrarFragment" />
+        <action
+            android:id="@+id/action_clienteFragment_to_clienteModificarFragment"
+            app:destination="@id/clienteModificarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clienteRegistrarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.cliente.ClienteRegistrarFragment"
+        android:label="Insertar Cliente"
+        tools:layout="@layout/fragment_cliente_registrar" >
+        <action
+            android:id="@+id/action_clienteRegistrarFragment_to_clienteFragment"
+            app:destination="@id/clienteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/clienteModificarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.cliente.ClienteModificarFragment"
+        android:label="Modificar Cliente"
+        tools:layout="@layout/fragment_cliente_modificar">
+        <action
+            android:id="@+id/action_clienteModificarFragment_to_clienteFragment"
+            app:destination="@id/clienteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriaFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.categoria.CategoriaFragment"
+        android:label="Categoria"
+        tools:layout="@layout/fragment_categoria" >
+        <action
+            android:id="@+id/action_categoriaFragment_to_categoriaRegistrarFragment"
+            app:destination="@id/categoriaRegistrarFragment" />
+        <action
+            android:id="@+id/action_categoriaFragment_to_categoriaModificarFragment"
+            app:destination="@id/categoriaModificarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriaRegistrarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.categoria.CategoriaRegistrarFragment"
+        android:label="Insertar Categoria"
+        tools:layout="@layout/fragment_categoria_registrar">
+        <action
+            android:id="@+id/action_categoriaRegistrarFragment_to_categoriaFragment"
+            app:destination="@id/categoriaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriaModificarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.categoria.CategoriaModificarFragment"
+        android:label="Modificar Categoria"
+        tools:layout="@layout/fragment_categoria_modificar">
+        <action
+            android:id="@+id/action_categoriaModificarFragment_to_categoriaFragment"
+            app:destination="@id/categoriaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productoFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.producto.ProductoFragment"
+        android:label="Producto"
+        tools:layout="@layout/fragment_producto" >
+        <action
+            android:id="@+id/action_productoFragment_to_productoRegistrarFragment"
+            app:destination="@id/productoRegistrarFragment" />
+        <action
+            android:id="@+id/action_productoFragment_to_productoModificarFragment"
+            app:destination="@id/productoModificarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productoRegistrarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.producto.ProductoRegistrarFragment"
+        android:label="Insertar Producto"
+        tools:layout="@layout/fragment_producto_registrar">
+        <action
+            android:id="@+id/action_productoRegistrarFragment_to_productoFragment"
+            app:destination="@id/productoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productoModificarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.producto.ProductoModificarFragment"
+        android:label="Modificar Producto"
+        tools:layout="@layout/fragment_producto_modificar">
+        <action
+            android:id="@+id/action_productoModificarFragment_to_productoFragment"
+            app:destination="@id/productoFragment" />
+    </fragment>
 </navigation>

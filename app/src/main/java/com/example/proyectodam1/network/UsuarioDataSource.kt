@@ -19,10 +19,10 @@ class UsuarioDataSource(private val db:FirebaseFirestore) {
                 }
         }.addOnFailureListener {
             Log.e("Excepciòn : ", "Error en " + it.localizedMessage)
-            }
+        }
     }
-   fun obtenerRolUsuario(email : String,rs: (Usuario ?) -> Unit){
 
+    fun obtenerRolUsuario(email : String,rs: (Usuario ?) -> Unit){
        db.collection(colleccion)
            .whereEqualTo("email",email).get()
            .addOnSuccessListener {
@@ -32,11 +32,9 @@ class UsuarioDataSource(private val db:FirebaseFirestore) {
                }else{
                    Log.e("Error","No se encontro el rol")
                }
-
            }.addOnFailureListener {
                Log.e("Excepciòn : ", "Error en " + it.localizedMessage)
            }
-
-   }
+    }
 
 }

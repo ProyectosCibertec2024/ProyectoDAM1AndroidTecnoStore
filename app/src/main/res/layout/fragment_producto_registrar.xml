@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.principalMenu.ui.inventario.gestionInventario.producto.ProductoRegistrarFragment"
+    android:orientation="vertical"
+    android:layout_marginTop="50dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Guardar Producto"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtmarca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="20sp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cbocategoria"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="10sp">
+
+        <AutoCompleteTextView
+            android:id="@+id/cbocategoria2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="Categoria" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cboproveedor"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="10sp">
+
+        <AutoCompleteTextView
+            android:id="@+id/cboproveedor2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="Proveedor" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtprecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="10sp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Precio" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtstock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="10sp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Stock" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imgproductocargar"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:src="@drawable/ic_producto"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="20sp"/>
+
+    <Button
+        android:id="@+id/btnseleccionarproducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="25sp"
+        android:layout_marginTop="-80sp"
+        android:text="Seleccionar Foto"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"/>
+
+    <Button
+        android:id="@+id/btnregistrarproducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="40sp"
+        android:layout_gravity="center"/>
+</LinearLayout>
