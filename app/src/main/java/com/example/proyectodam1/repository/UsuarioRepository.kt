@@ -14,4 +14,22 @@ class UsuarioRepository(private val dataSource: UsuarioDataSource) {
             rs(it)
         }
     }
+
+    fun obtenerUsuario(rs : (List<Usuario>) -> Unit) {
+        dataSource.obtenerUsuario {
+            rs(it)
+        }
+    }
+
+    fun agregarUsuario(usuario : Usuario, rs : (Boolean) -> Unit) {
+        dataSource.agregarUsuario(usuario) {
+            rs(it)
+        }
+    }
+
+    fun actualizarUsuario(id : String, usuario: Usuario, rs: (Boolean) -> Unit) {
+        dataSource.actualizarUsuario(id, usuario) {
+            rs(it)
+        }
+    }
 }

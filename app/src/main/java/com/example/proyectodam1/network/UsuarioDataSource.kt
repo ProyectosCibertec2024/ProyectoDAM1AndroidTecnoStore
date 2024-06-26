@@ -22,7 +22,7 @@ class UsuarioDataSource(private val db:FirebaseFirestore) {
         }
     }
 
-    fun obtenerRolUsuario(email : String,rs: (Usuario ?) -> Unit){
+    fun obtenerRolUsuario(email : String,rs: (Usuario?) -> Unit){
        db.collection(colleccion)
            .whereEqualTo("email",email).get()
            .addOnSuccessListener {
@@ -34,7 +34,86 @@ class UsuarioDataSource(private val db:FirebaseFirestore) {
                }
            }.addOnFailureListener {
                Log.e("Excepciòn : ", "Error en " + it.localizedMessage)
+               rs(null)
            }
+    }
+
+    fun obtenerUsuario(rs : (List<Usuario>) -> Unit) {
+        db.collection(colleccion).get()
+            .addOnSuccessListener { q ->
+                val lista = mutableListOf<Usuario>()
+                for (l in q) {
+                    var usuario = l.toObject(Usuario::class.java)
+                    usuario.id = l.id
+                    lista.add(usuario)
+                }
+                rs(lista)
+            }.addOnFailureListener {
+                Log.e("Error en obtener listado", "Listado ${it.localizedMessage}")
+                rs(emptyList())
+            }
+    }
+
+    fun agregarUsuario(usuario : Usuario, rs : (Boolean) -> Unit) {
+        db.collection(colleccion).add(usuario)
+            .addOnSuccessListener {
+                FirebaseAuth.getInstance()
+                    .createUserWithEmailAndPassword(usuario.email.toString(), usuario.password.toString())
+                    .addOnCompleteListener {
+                        if(it.isSuccessful) {
+                            rs(true)
+                        }
+                    }.addOnFailureListener {
+                        Log.e("Excepción : ", "Error en crear usuario auth : " + it.localizedMessage)
+                    }
+            }
+            .addOnFailureListener {
+                Log.e("Excepción : ", "Error en Registrar Usuario : " + it.localizedMessage)
+                rs(false)
+            }
+    }
+
+    fun actualizarUsuario(id : String, usuario: Usuario, rs: (Boolean) -> Unit) {
+        val usuarioAuth = FirebaseAuth.getInstance().currentUser
+        db.collection(colleccion).add(usuario)
+            .addOnSuccessListener {
+                if(usuarioAuth != null) {
+                    if(usuarioAuth.email != usuario.email) {
+                        usuarioAuth.updateEmail(usuario.email.toString())
+                            .addOnCompleteListener {
+                                if(it.isSuccessful) {
+                                    Log.d("Bien Auth", "Se Encontro el Email auth")
+                                }else {
+                                    Log.e("Actualizar Auth Usuario", "Usuario no autenticado")
+                                    rs(false)
+                                }
+                            }
+                    }
+
+                    usuarioAuth.updatePassword(usuario.password.toString())
+                        .addOnCompleteListener {
+                            if(it.isSuccessful) {
+                                Log.d("Password Auth", "Se encontro el password")
+                                rs(true)
+                            }else {
+                                Log.d("Password Auth", "No Se encontro el password")
+                                rs(false)
+                            }
+                        }
+                        .addOnFailureListener {
+                            Log.e("Actualizar Auth Usuario", "Usuario no autenticado")
+                            rs(false)
+                        }
+
+                }else {
+                    Log.e("ActualizarUsuario", "Usuario no autenticado")
+                    rs(false)
+                }
+            }
+            .addOnFailureListener {
+                Log.e("Excepción : ", "Error en Modificar Usuario : " + it.localizedMessage)
+                rs(false)
+            }
     }
 
 }

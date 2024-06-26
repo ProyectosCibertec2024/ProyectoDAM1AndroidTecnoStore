@@ -37,6 +37,9 @@ class InventarioFragment : Fragment() {
         binding.btnGesInventario.setOnClickListener {
             findNavController().navigate(InventarioFragmentDirections.actionNavInventaryToGestionInventarioFragment())
         }
+        binding.btngesproveedores.setOnClickListener {
+            findNavController().navigate(InventarioFragmentDirections.actionNavInventaryToProveedorFragment())
+        }
     }
 
     override fun onDestroyView() {
