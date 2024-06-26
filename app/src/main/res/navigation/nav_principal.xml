@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_nav_gestion_usuario_to_usuarioFragment"
             app:destination="@id/usuarioFragment" />
+        <action
+            android:id="@+id/action_nav_gestion_usuario_to_rolFragment"
+            app:destination="@id/rolFragment" />
     </fragment>
     <fragment
         android:id="@+id/gestionInventarioFragment"
@@ -211,5 +214,35 @@
         <action
             android:id="@+id/action_usuarioRegistrarFragment_to_usuarioFragment"
             app:destination="@id/usuarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rolFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionUsuario.rol.RolFragment"
+        android:label="Rol"
+        tools:layout="@layout/fragment_rol">
+        <action
+            android:id="@+id/action_rolFragment_to_rolRegistrarFragment"
+            app:destination="@id/rolRegistrarFragment" />
+        <action
+            android:id="@+id/action_rolFragment_to_rolModificarFragment"
+            app:destination="@id/rolModificarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rolModificarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionUsuario.rol.RolModificarFragment"
+        android:label="Modificar Rol"
+        tools:layout="@layout/fragment_rol_modificar">
+        <action
+            android:id="@+id/action_rolModificarFragment_to_rolFragment"
+            app:destination="@id/rolFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rolRegistrarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionUsuario.rol.RolRegistrarFragment"
+        android:label="Insertar Rol"
+        tools:layout="@layout/fragment_rol_registrar">
+        <action
+            android:id="@+id/action_rolRegistrarFragment_to_rolFragment"
+            app:destination="@id/rolFragment" />
     </fragment>
 </navigation>

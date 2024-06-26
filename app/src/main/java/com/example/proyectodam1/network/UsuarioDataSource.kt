@@ -4,7 +4,6 @@ import android.util.Log
 import com.example.proyectodam1.model.Usuario
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.toObject
 
 class UsuarioDataSource(private val db:FirebaseFirestore) {
 
@@ -75,44 +74,56 @@ class UsuarioDataSource(private val db:FirebaseFirestore) {
 
     fun actualizarUsuario(id : String, usuario: Usuario, rs: (Boolean) -> Unit) {
         val usuarioAuth = FirebaseAuth.getInstance().currentUser
-        db.collection(colleccion).add(usuario)
-            .addOnSuccessListener {
-                if(usuarioAuth != null) {
-                    if(usuarioAuth.email != usuario.email) {
-                        usuarioAuth.updateEmail(usuario.email.toString())
+        if(usuarioAuth != null) {
+            db.collection(colleccion).document(id).set(usuario)
+                .addOnSuccessListener {
+                        if(usuarioAuth.email != usuario.email) {
+                            usuarioAuth.updateEmail(usuario.email.toString())
+                                .addOnCompleteListener {
+                                    if(it.isSuccessful) {
+                                        Log.d("Bien Auth", "Se Encontro el Email auth")
+                                    }else {
+                                        Log.e("Actualizar Auth Usuario", "Usuario no autenticado")
+                                        rs(false)
+                                    }
+                                }
+                        }
+
+                        usuarioAuth.updatePassword(usuario.password.toString())
                             .addOnCompleteListener {
                                 if(it.isSuccessful) {
-                                    Log.d("Bien Auth", "Se Encontro el Email auth")
+                                    Log.d("Password Auth", "Se encontro el password")
+                                    rs(true)
                                 }else {
-                                    Log.e("Actualizar Auth Usuario", "Usuario no autenticado")
+                                    Log.d("Password Auth", "No Se encontro el password")
                                     rs(false)
                                 }
                             }
-                    }
-
-                    usuarioAuth.updatePassword(usuario.password.toString())
-                        .addOnCompleteListener {
-                            if(it.isSuccessful) {
-                                Log.d("Password Auth", "Se encontro el password")
-                                rs(true)
-                            }else {
-                                Log.d("Password Auth", "No Se encontro el password")
+                            .addOnFailureListener {
+                                Log.e("Actualizar Auth Usuario", "Usuario no autenticado")
                                 rs(false)
                             }
-                        }
-                        .addOnFailureListener {
-                            Log.e("Actualizar Auth Usuario", "Usuario no autenticado")
-                            rs(false)
-                        }
-
-                }else {
-                    Log.e("ActualizarUsuario", "Usuario no autenticado")
+                }
+                .addOnFailureListener {
+                    Log.e("Excepción : ", "Error en Modificar Usuario : " + it.localizedMessage)
                     rs(false)
+                }
+        }else {
+            Log.e("Error", "USUARI NO AUTH")
+        }
+    }
+
+    fun obtenerUsuarioxId(id : String, rs : (Usuario?) -> Unit) {
+        db.collection(colleccion).document(id).get()
+            .addOnSuccessListener {
+                if(it.exists()) {
+                    val objuser = it.toObject(Usuario::class.java)
+                    rs(objuser)
                 }
             }
             .addOnFailureListener {
-                Log.e("Excepción : ", "Error en Modificar Usuario : " + it.localizedMessage)
-                rs(false)
+                Log.e("Excepción : ", "Error en Buscar id Usuario : " + it.localizedMessage)
+                rs(null)
             }
     }
 

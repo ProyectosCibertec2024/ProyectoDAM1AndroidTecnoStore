@@ -33,4 +33,10 @@ class UsuarioViewModel (private val repository: UsuarioRepository) : ViewModel()
             rs(it)
         }
     }
+
+    fun obtenerUsuarioxId(id : String, rs : (Usuario?) -> Unit) {
+        repository.obtenerUsuarioxId(id) {
+            rs(it)
+        }
+    }
 }

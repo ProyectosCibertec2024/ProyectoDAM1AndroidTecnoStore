@@ -32,4 +32,10 @@ class UsuarioRepository(private val dataSource: UsuarioDataSource) {
             rs(it)
         }
     }
+
+    fun obtenerUsuarioxId(id : String, rs : (Usuario?) -> Unit) {
+        dataSource.obtenerUsuarioxId(id) {
+            rs(it)
+        }
+    }
 }

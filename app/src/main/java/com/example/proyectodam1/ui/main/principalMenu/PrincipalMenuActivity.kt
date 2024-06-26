@@ -60,6 +60,7 @@ class PrincipalMenuActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        navigationView = findViewById(R.id.nav_view)
 
         rolesLogin()
         cerrarSesion()
@@ -84,8 +85,6 @@ class PrincipalMenuActivity : AppCompatActivity() {
         if (email != null) {
             usuarioViewModel.obtenerRolUsuario(email) {
                 Log.i("NOMUSUARIO: ", "USUARIO: ${it?.nombre}")
-
-                navigationView = findViewById(R.id.nav_view)
                 val menu = navigationView.menu
                 val inicio = menu.findItem(R.id.nav_inicio)
                 val inventario = menu.findItem(R.id.nav_inventary)

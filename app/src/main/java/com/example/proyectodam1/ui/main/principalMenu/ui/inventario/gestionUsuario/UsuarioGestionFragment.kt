@@ -25,6 +25,9 @@ class UsuarioGestionFragment : Fragment() {
         _binding.btnGesUsuario.setOnClickListener {
             findNavController().navigate(UsuarioGestionFragmentDirections.actionNavGestionUsuarioToUsuarioFragment())
         }
+        _binding.btnRoles.setOnClickListener {
+            findNavController().navigate(UsuarioGestionFragmentDirections.actionNavGestionUsuarioToRolFragment())
+        }
     }
 
     override fun onDestroyView() {

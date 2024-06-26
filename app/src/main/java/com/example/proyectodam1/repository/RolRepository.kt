@@ -21,4 +21,10 @@ class RolRepository(private val dataSource: RolDataSource) {
             rs(it)
         }
     }
+
+    fun obtenerRolxIdrol(id : String, rs: (Rol?) -> Unit) {
+        dataSource.obtenerRolxIdrol(id) {
+            rs(it)
+        }
+    }
 }

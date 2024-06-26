@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.principalMenu.ui.inventario.gestionUsuario.usuario.UsuarioModificarFragment"
     android:orientation="vertical"
     android:layout_marginTop="50dp">
@@ -16,6 +17,23 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/black"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="10sp"
+        android:paddingEnd="10sp"
+        android:paddingBottom="8sp"
+        android:visibility="gone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtnombre"
@@ -72,7 +90,8 @@
         android:layout_height="wrap_content"
         android:paddingStart="10sp"
         android:paddingEnd="10sp"
-        android:paddingBottom="8sp">
+        android:paddingBottom="8sp"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

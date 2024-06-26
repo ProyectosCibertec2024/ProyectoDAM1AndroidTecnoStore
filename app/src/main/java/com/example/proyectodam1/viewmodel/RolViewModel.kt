@@ -24,4 +24,10 @@ class RolViewModel(private val repository: RolRepository) : ViewModel() {
         }
     }
 
+    fun obtenerRolxIdrol(id : String, rs: (Rol?) -> Unit) {
+        repository.obtenerRolxIdrol(id) {
+            rs(it)
+        }
+    }
+
 }

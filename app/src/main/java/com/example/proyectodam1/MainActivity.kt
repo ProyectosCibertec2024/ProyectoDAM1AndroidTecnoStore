@@ -69,9 +69,7 @@ class MainActivity : AppCompatActivity() {
             usuarioViewModel.logueoUsuario(email, password) {
                 if(email.isNotEmpty() && password.isNotEmpty()) {
                     if(it) {
-                        val intent = Intent(this, PrincipalMenuActivity::class.java)
-                        intent.putExtra("email", email)
-                        startActivity(intent)
+                        iniciarPrincipalMenu(email)
                         binding.txtEmailLogin.editText?.text = null
                         binding.txtPasswordLogin.editText?.text = null
                     }else {
@@ -91,13 +89,17 @@ class MainActivity : AppCompatActivity() {
             val email = currentUser.email
             if (email != null) {
                 Log.i("EMAILLLLLLL", email)
-                usuarioViewModel.obtenerRolUsuario(email) { user ->
-                    val intent = Intent(this, PrincipalMenuActivity::class.java)
-                    intent.putExtra("email", email)
-                    startActivity(intent)
-                    finish()
-                }
+                iniciarPrincipalMenu(email)
             }
+        }
+    }
+
+    private fun iniciarPrincipalMenu(email: String) {
+        usuarioViewModel.obtenerRolUsuario(email) { user ->
+            val intent = Intent(this, PrincipalMenuActivity::class.java)
+            intent.putExtra("email", email)
+            startActivity(intent)
+            finish()
         }
     }
 
