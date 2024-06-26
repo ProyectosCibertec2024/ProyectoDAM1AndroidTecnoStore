@@ -69,6 +69,7 @@ class UsuarioFragment : Fragment() {
             "urlimg" to it.urlimg,
             "rol" to it.rol?.id
         )
+        findNavController().navigate(R.id.action_usuarioFragment_to_usuarioModificarFragment, bundle)
     }
 
     override fun onDestroyView() {

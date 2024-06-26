@@ -61,6 +61,7 @@ class ProductoModificarFragment : Fragment() {
     private var listaProveedores = mutableListOf<Proveedor>()
 
     private var selectImagen : Uri? = null
+
     private var selectedCategoriaId: String? = null
     private var selectedProveedorId: String? = null
 

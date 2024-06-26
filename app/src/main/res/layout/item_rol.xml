@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15sp"
+    app:cardMaxElevation="4sp"
+    app:cardElevation="4sp"
+    app:cardUseCompatPadding="true"
+    android:layout_marginStart="15sp"
+    android:layout_marginEnd="15sp"
+    android:layout_marginTop="18sp"
+    android:layout_marginBottom="-20sp">
+
+    <RelativeLayout
+        android:id="@+id/rlcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/imgRolView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_users"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="false"/>
+
+        <TextView
+            android:id="@+id/lblNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/imgRolView"
+            android:text="Nombre"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30sp"
+            android:textSize="15sp"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

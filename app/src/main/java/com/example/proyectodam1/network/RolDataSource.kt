@@ -45,4 +45,19 @@ class RolDataSource(private val db : FirebaseFirestore) {
                 rs(false)
             }
     }
+
+    fun obtenerRolxIdrol(id : String, rs: (Rol?) -> Unit) {
+        db.collection(coleccion).document(id)
+            .get()
+            .addOnSuccessListener { doc ->
+                if(doc.exists()) {
+                    val objrol = doc.toObject(Rol::class.java)
+                    rs(objrol)
+                }
+            }
+            .addOnFailureListener {
+                Log.e("Error en :", "Modificar Rol : ${it.localizedMessage}")
+                rs(null)
+            }
+    }
 }
