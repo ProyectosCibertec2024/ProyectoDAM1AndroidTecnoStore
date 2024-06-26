@@ -42,7 +42,11 @@
         android:id="@+id/nav_gestion_usuario"
         android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionUsuario.UsuarioGestionFragment"
         android:label="Gestión de Usuario"
-        tools:layout="@layout/fragment_usuario_gestion" />
+        tools:layout="@layout/fragment_usuario_gestion" >
+        <action
+            android:id="@+id/action_nav_gestion_usuario_to_usuarioFragment"
+            app:destination="@id/usuarioFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gestionInventarioFragment"
         android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionInventario.GestionInventarioFragment"
@@ -177,5 +181,35 @@
         <action
             android:id="@+id/action_proveedorModificarFragment_to_proveedorFragment"
             app:destination="@id/proveedorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usuarioFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionUsuario.usuario.UsuarioFragment"
+        android:label="Usuario"
+        tools:layout="@layout/fragment_usuario" >
+        <action
+            android:id="@+id/action_usuarioFragment_to_usuarioRegistrarFragment"
+            app:destination="@id/usuarioRegistrarFragment" />
+        <action
+            android:id="@+id/action_usuarioFragment_to_usuarioModificarFragment"
+            app:destination="@id/usuarioModificarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usuarioModificarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionUsuario.usuario.UsuarioModificarFragment"
+        android:label="Modificar Usuario"
+        tools:layout="@layout/fragment_usuario_modificar" >
+        <action
+            android:id="@+id/action_usuarioModificarFragment_to_usuarioFragment"
+            app:destination="@id/usuarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usuarioRegistrarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.inventario.gestionUsuario.usuario.UsuarioRegistrarFragment"
+        android:label="Insertar Usuario"
+        tools:layout="@layout/fragment_usuario_registrar" >
+        <action
+            android:id="@+id/action_usuarioRegistrarFragment_to_usuarioFragment"
+            app:destination="@id/usuarioFragment" />
     </fragment>
 </navigation>
