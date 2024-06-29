@@ -43,7 +43,7 @@ class ClienteAdapter(val clickDelete : (id : String, nombre : String) -> Unit,
 
         holder.itemView.findViewById<ImageButton>(R.id.btnEliminarCliente).setOnClickListener {
             Log.i("ID", "ID: ${cliente.id}")
-            clickDelete(cliente.id.toString(), cliente.nomcli)
+            clickDelete(cliente.id.toString(), cliente.nomcli!!)
         }
     }
 

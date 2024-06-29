@@ -31,7 +31,14 @@
         android:id="@+id/nav_venta"
         android:name="com.example.proyectodam1.ui.main.principalMenu.ui.venta.VentaFragment"
         android:label="@string/menu_venta"
-        tools:layout="@layout/fragment_venta" />
+        tools:layout="@layout/fragment_venta" >
+        <action
+            android:id="@+id/action_nav_venta_to_ventaModificarFragment"
+            app:destination="@id/ventaModificarFragment" />
+        <action
+            android:id="@+id/action_nav_venta_to_ventaInsertarFragment"
+            app:destination="@id/ventaInsertarFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_report"
         android:name="com.example.proyectodam1.ui.main.principalMenu.ui.reporte.ReporteFragment"
@@ -244,5 +251,23 @@
         <action
             android:id="@+id/action_rolRegistrarFragment_to_rolFragment"
             app:destination="@id/rolFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ventaInsertarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.venta.VentaInsertarFragment"
+        android:label="Venta Registrar"
+        tools:layout="@layout/fragment_venta_insertar">
+        <action
+            android:id="@+id/action_ventaInsertarFragment_to_nav_venta"
+            app:destination="@id/nav_venta" />
+    </fragment>
+    <fragment
+        android:id="@+id/ventaModificarFragment"
+        android:name="com.example.proyectodam1.ui.main.principalMenu.ui.venta.VentaModificarFragment"
+        android:label="Modificar Venta"
+        tools:layout="@layout/fragment_venta_modificar">
+        <action
+            android:id="@+id/action_ventaModificarFragment_to_nav_venta"
+            app:destination="@id/nav_venta" />
     </fragment>
 </navigation>
