@@ -29,4 +29,10 @@ class ClienteViewModel(private val repository: ClienteRepository) : ViewModel() 
             rs(it)
         }
     }
+
+    fun obtenerClientexId(id : String, rs: (cliente : Cliente?) -> Unit) {
+        repository.obtenerClientexId(id) {
+            rs(it)
+        }
+    }
 }

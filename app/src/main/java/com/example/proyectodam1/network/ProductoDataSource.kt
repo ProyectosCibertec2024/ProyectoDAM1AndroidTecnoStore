@@ -83,7 +83,7 @@ class ProductoDataSource(private val db : FirebaseFirestore) {
                 }
             }
             .addOnFailureListener{
-                Log.e("Error" , "EXCEPTION MODIFICAR : ${it.localizedMessage}")
+                Log.e("Error" , "EXCEPTION BUSCAR PRODUCTO ID : ${it.localizedMessage}")
             }
     }
 }

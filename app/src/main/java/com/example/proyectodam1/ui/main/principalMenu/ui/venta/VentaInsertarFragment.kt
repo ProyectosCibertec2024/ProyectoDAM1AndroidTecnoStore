@@ -1,17 +1,22 @@
 package com.example.proyectodam1.ui.main.principalMenu.ui.venta
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.proyectodam1.R
 import com.example.proyectodam1.databinding.FragmentVentaInsertarBinding
 import com.example.proyectodam1.model.Cliente
 import com.example.proyectodam1.model.Producto
 import com.example.proyectodam1.model.Usuario
+import com.example.proyectodam1.model.Venta
 import com.example.proyectodam1.network.ClienteDataSource
 import com.example.proyectodam1.network.ProductoDataSource
 import com.example.proyectodam1.network.UsuarioDataSource
@@ -30,6 +35,9 @@ import com.example.proyectodam1.viewmodel.VentaViewModel
 import com.example.proyectodam1.viewmodel.VentaViewModelFactory
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class VentaInsertarFragment : Fragment() {
     private var _binding : FragmentVentaInsertarBinding ? = null
@@ -73,17 +81,49 @@ class VentaInsertarFragment : Fragment() {
         cargarComboUsuario()
         cargarComboProducto()
 
+        autocompleteTotal()
         registrarVenta()
+    }
+
+    private fun autocompleteTotal() {
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val cant = binding.txtcantidad.editText?.text.toString()
+                val pre = binding.txtprecio.editText?.text.toString()
+
+                if(cant.isNotEmpty() && pre.isNotEmpty()) {
+                    val cant2 = cant.toIntOrNull()
+                    val pre2 = pre.toDoubleOrNull()
+
+                    if(cant2 != null && pre2 != null) {
+                        val total = cant2 * pre2
+                        val format = String.format("%.2f", total)
+                        binding.txttotal.editText?.setText(format)
+                    }else {
+                        binding.txttotal.editText?.setText("")
+                    }
+                }else {
+                    binding.txttotal.editText?.setText("")
+                }
+            }
+        }
+
+        binding.txtcantidad.editText?.addTextChangedListener(textWatcher)
+        binding.txtprecio.editText?.addTextChangedListener(textWatcher)
     }
 
     private fun registrarVenta() {
         binding.btnregistrarventa.setOnClickListener {
-            binding.txtcantidad.error = null
-            binding.txtprecio.error = null
-            binding.txttotal.error = null
             binding.cbocliente.error = null
             binding.cbousuario.error = null
             binding.cboproducto.error = null
+            binding.txtcantidad.error = null
+            binding.txtprecio.error = null
+            binding.txttotal.error = null
 
             val cbocliente = binding.cbocliente2.text.toString()
             val cboproducto = binding.cboproducto2.text.toString()
@@ -92,7 +132,7 @@ class VentaInsertarFragment : Fragment() {
             val precio = binding.txtprecio.editText?.text.toString()
             val total = binding.txttotal.editText?.text.toString()
 
-            val clienteindex = listaCliente.indexOfFirst { it.nomcli + it.apecli == cbocliente }
+            val clienteindex = listaCliente.indexOfFirst { it.nomcli + " " + it.apecli == cbocliente }
             val productoIndex = listaProducto.indexOfFirst { it.marca == cboproducto }
             val usuarioIndex = listaUsuario.indexOfFirst { it.nombre + " " + it.apellido == cbousuario }
 
@@ -125,14 +165,35 @@ class VentaInsertarFragment : Fragment() {
             }
 
             if(total.isEmpty()) {
-                binding.txtprecio.error = "Ingrese la cantidad"
+                binding.txtprecio.error = "Ingrese la cantidad y/o precio"
                 return@setOnClickListener
             }
 
             val clienteref : DocumentReference = FirebaseFirestore.getInstance().collection("Cliente").document(listaCliente[clienteindex].id!!)
             val usuarioref : DocumentReference = FirebaseFirestore.getInstance().collection("Usuario").document(listaUsuario[usuarioIndex].id)
             val productoref : DocumentReference = FirebaseFirestore.getInstance().collection("Producto").document(listaProducto[productoIndex].id)
+
+            val totalVenta = total.toDouble() + (total.toDouble() * 0.18)
+
+            val totalVentaFormat = String.format("%.2f", totalVenta)
+            val date = Date()
+            val format = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+            val fecha = format.format(date)
+
+            val venta = Venta("",clienteref,usuarioref,productoref, cantidad.toInt(), precio.toDouble(), 18.0, total.toDouble(), totalVentaFormat.toDouble(), fecha)
+            ventaViewModel.agregarVenta(venta) {
+                if(it) {
+                    mensaje("Se registro la venta exitosamente")
+                    findNavController().navigate(VentaInsertarFragmentDirections.actionVentaInsertarFragmentToNavVenta())
+                }else {
+                    mensaje("Error no se pudo registrar")
+                }
+            }
         }
+    }
+
+    private fun mensaje(s: String) {
+        Toast.makeText(requireContext(), s, Toast.LENGTH_SHORT).show()
     }
 
     private fun cargarComboProducto() {
@@ -145,6 +206,11 @@ class VentaInsertarFragment : Fragment() {
             productoAdapter.clear()
             productoAdapter.addAll(producto)
             productoAdapter.notifyDataSetChanged()
+        }
+
+        binding.cboproducto2.setOnItemClickListener { _, _, position, _ ->
+            val productoselect = listaProducto[position]
+            binding.txtprecio.editText?.setText(productoselect.precio.toString())
         }
     }
 
