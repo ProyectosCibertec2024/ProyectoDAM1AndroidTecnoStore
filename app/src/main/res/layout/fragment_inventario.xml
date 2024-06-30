@@ -103,6 +103,7 @@
             android:layout_marginBottom="10dp" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGesConsulta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/nav_icon_consulta"
@@ -116,28 +117,5 @@
             app:icon="@drawable/ic_search" />
 
     </LinearLayout>
+
 </ScrollView>
-
-<!--
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Esta sección permite gestionar los datos bancarios."
-            android:textSize="14sp"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:layout_marginBottom="10dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/nav_icon_banco"
-            app:icon="@drawable/ic_bank"
-            app:iconGravity="textStart"
-            app:cornerRadius="12dp"
-            android:backgroundTint="#2ecc70"
-            android:textColor="@android:color/white"
-            app:iconPadding="8dp"
-            android:elevation="4dp"
-            android:layout_marginBottom="30dp" />
--->

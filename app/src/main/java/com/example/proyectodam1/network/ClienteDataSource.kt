@@ -58,4 +58,20 @@ class ClienteDataSource(private val db : FirebaseFirestore) {
                 rs(false)
             }
     }
+
+    fun obtenerClientexId(id : String, rs: (cliente : Cliente?) -> Unit) {
+        db.collection(coleccion).document(id).get()
+            .addOnSuccessListener {
+                if(it.exists()) {
+                    val cliente = it.toObject(Cliente::class.java)
+                    rs(cliente)
+                }else {
+                    rs(null)
+                }
+            }
+            .addOnFailureListener {
+                rs(null)
+                Log.e("ERRO EN OBTENER", "ID CATEGORIA : ${it.localizedMessage}")
+            }
+    }
 }

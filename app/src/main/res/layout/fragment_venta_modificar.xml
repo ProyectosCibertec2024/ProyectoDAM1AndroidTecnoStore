@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.principalMenu.ui.venta.VentaModificarFragment"
+    android:orientation="vertical"
+    android:layout_marginTop="50sp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Modificar Venta"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtidventa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="10sp"
+        android:visibility="gone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cbocliente"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="10sp">
+
+        <AutoCompleteTextView
+            android:id="@+id/cbocliente2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="Cliente" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cbousuario"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="10sp">
+
+        <AutoCompleteTextView
+            android:id="@+id/cbousuario2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="Usuario" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cboproducto"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="10sp">
+
+        <AutoCompleteTextView
+            android:id="@+id/cboproducto2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:text="Producto" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtcantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="10sp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cantidad" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtprecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="10sp"
+        android:enabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Precio" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txttotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="15sp"
+        android:paddingStart="15sp"
+        android:paddingTop="10sp"
+        android:enabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Total" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnmodificarventa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="40sp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

@@ -28,4 +28,10 @@ class ClienteRepository(private val dataSource: ClienteDataSource) {
             rs(it)
         }
     }
+
+    fun obtenerClientexId(id : String, rs: (cliente : Cliente?) -> Unit) {
+        dataSource.obtenerClientexId(id) {
+            rs(it)
+        }
+    }
 }
