@@ -33,6 +33,7 @@ import com.example.proyectodam1.viewmodel.UsuarioViewModel
 import com.example.proyectodam1.viewmodel.UsuarioViewModelFactory
 import com.example.proyectodam1.viewmodel.VentaViewModel
 import com.example.proyectodam1.viewmodel.VentaViewModelFactory
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -176,9 +177,7 @@ class VentaInsertarFragment : Fragment() {
             val totalVenta = total.toDouble() + (total.toDouble() * 0.18)
 
             val totalVentaFormat = String.format("%.2f", totalVenta)
-            val date = Date()
-            val format = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-            val fecha = format.format(date)
+            val fecha = Timestamp.now()
 
             val venta = Venta("",clienteref,usuarioref,productoref, cantidad.toInt(), precio.toDouble(), 18.0, total.toDouble(), totalVentaFormat.toDouble(), fecha)
             ventaViewModel.agregarVenta(venta) {

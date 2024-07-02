@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15sp"
+    app:cardMaxElevation="4sp"
+    app:cardElevation="4sp"
+    app:cardUseCompatPadding="true"
+    android:layout_marginStart="15sp"
+    android:layout_marginEnd="15sp"
+    android:layout_marginTop="18sp"
+    android:layout_marginBottom="-20sp">
+
+    <RelativeLayout
+        android:id="@+id/rlcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/imgProductoView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_producto"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="false"/>
+
+        <TextView
+            android:id="@+id/lblClienteProducto"
+            android:layout_width="135dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5sp"
+            android:layout_toEndOf="@id/imgProductoView"
+            android:text="Cliente: "
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/lblProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lblClienteProducto"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0sp"
+            android:layout_toEndOf="@id/imgProductoView"
+            android:text="Producto: "
+            android:textSize="14sp"/>
+
+        <RelativeLayout
+            android:id="@+id/rlproducto"
+            android:layout_width="130dp"
+            android:layout_height="80sp"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="false">
+
+            <TextView
+                android:id="@+id/lblUsuario"
+                android:layout_width="124dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5sp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="5dp"
+                android:text="Usuario: "
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/lblTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0sp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/lblUsuario"
+                android:layout_marginStart="5dp"
+                android:text="Total: "
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/divirProducto"
+            android:layout_width="2dp"
+            android:layout_height="80dp"
+            android:layout_toStartOf="@id/rlproducto"
+            android:background="?android:attr/listDivider" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

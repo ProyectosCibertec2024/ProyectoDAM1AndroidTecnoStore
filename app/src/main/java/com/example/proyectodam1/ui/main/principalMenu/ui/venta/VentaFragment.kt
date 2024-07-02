@@ -18,6 +18,8 @@ import com.example.proyectodam1.ui.adapter.venta.VentaAdapter
 import com.example.proyectodam1.viewmodel.VentaViewModel
 import com.example.proyectodam1.viewmodel.VentaViewModelFactory
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class VentaFragment : Fragment() {
 
@@ -72,7 +74,7 @@ class VentaFragment : Fragment() {
             "precio" to it.precio,
             "subtotal" to it.subtotal,
             "total" to it.total,
-            "fechareg" to it.fechareg
+            "fechareg" to it.fechareg?.toDate()?.time
         )
         findNavController().navigate(R.id.action_nav_venta_to_ventaModificarFragment, bundle)
     }

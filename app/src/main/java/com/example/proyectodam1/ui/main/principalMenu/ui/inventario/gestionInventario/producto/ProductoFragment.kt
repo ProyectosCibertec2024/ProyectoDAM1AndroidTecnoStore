@@ -103,7 +103,7 @@ class ProductoFragment : Fragment() {
             "idcategoria" to prod.idcategoria?.id,
             "idproveedor" to prod.idproveedor?.id,
             "marca" to prod.marca,
-            "fechareg" to prod.fechareg,
+            "fechareg" to prod.fechareg?.toDate()?.time,
             "nomimg" to prod.nombreimg,
             "precio" to prod.precio.toString(),
             "stock" to prod.stock.toString(),

@@ -30,6 +30,7 @@ import com.example.proyectodam1.viewmodel.ProductoViewModel
 import com.example.proyectodam1.viewmodel.ProductoViewModelFactory
 import com.example.proyectodam1.viewmodel.ProveedorViewModel
 import com.example.proyectodam1.viewmodel.ProveedorViewModelFactory
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -156,9 +157,7 @@ class ProductoRegistrarFragment : Fragment() {
             val categoriaRef: DocumentReference = FirebaseFirestore.getInstance().collection("Categoria").document(listaCategorias[categoriaIndex].id)
             val proveedorRef: DocumentReference = FirebaseFirestore.getInstance().collection("Proveedor").document(listaProveedores[proveedorIndex].id)
 
-            val date = Date()
-            val format = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-            val fecha = format.format(date)
+            val fecha = Timestamp.now()
 
             val subirStorage = SubirStorage()
             subirStorage.uploadImage(requireContext(), selectImagen!!, "productos") { success, download ->

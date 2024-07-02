@@ -32,11 +32,10 @@ import com.example.proyectodam1.viewmodel.ProductoViewModel
 import com.example.proyectodam1.viewmodel.ProductoViewModelFactory
 import com.example.proyectodam1.viewmodel.ProveedorViewModel
 import com.example.proyectodam1.viewmodel.ProveedorViewModelFactory
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.Locale
 
 class ProductoModificarFragment : Fragment() {
     private var _binding : FragmentProductoModificarBinding ? = null
@@ -82,7 +81,8 @@ class ProductoModificarFragment : Fragment() {
         val obmarca = arguments?.getString("marca")
         val obprecio = arguments?.getString("precio")
         val obstock = arguments?.getString("stock")
-        val fecha = arguments?.getString("fechareg")
+        val fecha = arguments?.getLong("fechareg")
+        val fechaTimestamp = fecha?.let { Timestamp(Date(it)) }
         val oburlimg = arguments?.getString("urlimg")
 
         binding.txtidproducto.editText?.setText(obid)
@@ -104,10 +104,10 @@ class ProductoModificarFragment : Fragment() {
         cargarComboProveedor(obidproveedor)
         abrirGaleria()
 
-        modificarProducto(fecha!!)
+        modificarProducto(fechaTimestamp!!)
     }
 
-    private fun modificarProducto(fecha : String) {
+    private fun modificarProducto(fecha: Timestamp) {
         binding.btnguardarproducto.setOnClickListener {
             binding.txtmarca.error = null
             binding.cbocategoria.error = null

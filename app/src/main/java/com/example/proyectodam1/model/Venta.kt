@@ -1,5 +1,6 @@
 package com.example.proyectodam1.model
 
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentReference
 import java.io.Serializable
 
@@ -13,7 +14,7 @@ class Venta (
     val igv : Double ? = null,
     val subtotal : Double ? = null,
     val total : Double ? = null,
-    val fechareg : String ? = null
+    val fechareg : Timestamp? = null
 ) : Serializable {
-    constructor() : this("",null,null,null,0,0.0,0.0,0.0,0.0,"")
+    constructor() : this("",null,null,null,0,0.0,0.0,0.0,0.0,null)
 }
