@@ -5,6 +5,7 @@ import com.example.proyectodam1.model.Cliente
 import com.example.proyectodam1.model.Producto
 import com.example.proyectodam1.model.Usuario
 import com.example.proyectodam1.model.Venta
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
 
 class VentaDataSource(private val db : FirebaseFirestore) {
@@ -92,5 +93,20 @@ class VentaDataSource(private val db : FirebaseFirestore) {
             Log.e("Error", "No se encontró la venta para el usuario: ${it.localizedMessage}")
             rs(null)
         }
+    }
+
+    fun buscarVentaxFecha(fecha1 : Timestamp, fecha2: Timestamp, rs: (List<Venta>) -> Unit) {
+        db.collection(coleccion)
+            .whereGreaterThanOrEqualTo("fechareg", fecha1)
+            .whereLessThanOrEqualTo("fechareg", fecha2)
+            .get()
+            .addOnSuccessListener { result ->
+                val ventas = result.map { document -> document.toObject(Venta::class.java) }
+                rs(ventas)
+            }
+            .addOnFailureListener {
+                rs(emptyList())
+                Log.e("Error", "No se encontró la ventas buscadas: ${it.localizedMessage}")
+            }
     }
 }

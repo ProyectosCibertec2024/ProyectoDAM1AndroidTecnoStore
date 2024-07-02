@@ -32,8 +32,10 @@ import com.example.proyectodam1.viewmodel.UsuarioViewModel
 import com.example.proyectodam1.viewmodel.UsuarioViewModelFactory
 import com.example.proyectodam1.viewmodel.VentaViewModel
 import com.example.proyectodam1.viewmodel.VentaViewModelFactory
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.Date
 
 class VentaModificarFragment : Fragment() {
     private var _binding : FragmentVentaModificarBinding ? = null
@@ -86,7 +88,8 @@ class VentaModificarFragment : Fragment() {
         val obcantidad = arguments?.getString("cantidad")
         val obprecio = arguments?.getString("precio")
         val obsubtotal = arguments?.getString("subtotal")
-        val fecha = arguments?.getString("fechareg")
+        val fecha = arguments?.getLong("fechareg")
+        val fechaTimestamp = fecha?.let { Timestamp(Date(it)) }
 
         binding.txtidventa.editText?.setText(obid)
         binding.txtcantidad.editText?.setText(obcantidad)
@@ -161,7 +164,7 @@ class VentaModificarFragment : Fragment() {
 
             val totalVentaFormat = String.format("%.2f", totalVenta)
 
-            val venta = Venta("",clienteref,usuarioref,productoref, cantidad.toInt(), precio.toDouble(), 18.0, total.toDouble(), totalVentaFormat.toDouble(), fecha)
+            val venta = Venta("",clienteref,usuarioref,productoref, cantidad.toInt(), precio.toDouble(), 18.0, total.toDouble(), totalVentaFormat.toDouble(), fechaTimestamp)
             ventaViewModel.actualizarVenta(id, venta) {
                 if(it) {
                     mensaje("Se actualizo exitosamente")

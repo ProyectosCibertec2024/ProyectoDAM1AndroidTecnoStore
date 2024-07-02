@@ -91,7 +91,9 @@
         tools:layout="@layout/fragment_cliente_registrar" >
         <action
             android:id="@+id/action_clienteRegistrarFragment_to_clienteFragment"
-            app:destination="@id/clienteFragment" />
+            app:destination="@id/clienteFragment"
+            app:popUpTo="@id/clienteFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/clienteModificarFragment"
@@ -100,7 +102,9 @@
         tools:layout="@layout/fragment_cliente_modificar">
         <action
             android:id="@+id/action_clienteModificarFragment_to_clienteFragment"
-            app:destination="@id/clienteFragment" />
+            app:destination="@id/clienteFragment"
+            app:popUpTo="@id/clienteFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/categoriaFragment"
@@ -121,7 +125,9 @@
         tools:layout="@layout/fragment_categoria_registrar">
         <action
             android:id="@+id/action_categoriaRegistrarFragment_to_categoriaFragment"
-            app:destination="@id/categoriaFragment" />
+            app:destination="@id/categoriaFragment"
+            app:popUpTo="@id/categoriaFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/categoriaModificarFragment"
@@ -130,7 +136,9 @@
         tools:layout="@layout/fragment_categoria_modificar">
         <action
             android:id="@+id/action_categoriaModificarFragment_to_categoriaFragment"
-            app:destination="@id/categoriaFragment" />
+            app:destination="@id/categoriaFragment"
+            app:popUpTo="@id/categoriaFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/productoFragment"
@@ -151,7 +159,9 @@
         tools:layout="@layout/fragment_producto_registrar">
         <action
             android:id="@+id/action_productoRegistrarFragment_to_productoFragment"
-            app:destination="@id/productoFragment" />
+            app:destination="@id/productoFragment"
+            app:popUpTo="@id/productoFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/productoModificarFragment"
@@ -160,7 +170,9 @@
         tools:layout="@layout/fragment_producto_modificar">
         <action
             android:id="@+id/action_productoModificarFragment_to_productoFragment"
-            app:destination="@id/productoFragment" />
+            app:destination="@id/productoFragment"
+            app:popUpTo="@id/productoFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/proveedorFragment"
@@ -181,7 +193,9 @@
         tools:layout="@layout/fragment_proveedor_registrar">
         <action
             android:id="@+id/action_proveedorRegistrarFragment_to_proveedorFragment"
-            app:destination="@id/proveedorFragment" />
+            app:destination="@id/proveedorFragment"
+            app:popUpTo="@id/proveedorFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/proveedorModificarFragment"
@@ -190,7 +204,9 @@
         tools:layout="@layout/fragment_proveedor_modificar">
         <action
             android:id="@+id/action_proveedorModificarFragment_to_proveedorFragment"
-            app:destination="@id/proveedorFragment" />
+            app:destination="@id/proveedorFragment"
+            app:popUpTo="@id/proveedorFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/usuarioFragment"
@@ -211,7 +227,9 @@
         tools:layout="@layout/fragment_usuario_modificar" >
         <action
             android:id="@+id/action_usuarioModificarFragment_to_usuarioFragment"
-            app:destination="@id/usuarioFragment" />
+            app:destination="@id/usuarioFragment"
+            app:popUpTo="@id/usuarioFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/usuarioRegistrarFragment"
@@ -220,7 +238,9 @@
         tools:layout="@layout/fragment_usuario_registrar" >
         <action
             android:id="@+id/action_usuarioRegistrarFragment_to_usuarioFragment"
-            app:destination="@id/usuarioFragment" />
+            app:destination="@id/usuarioFragment"
+            app:popUpTo="@id/usuarioFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/rolFragment"
@@ -241,7 +261,9 @@
         tools:layout="@layout/fragment_rol_modificar">
         <action
             android:id="@+id/action_rolModificarFragment_to_rolFragment"
-            app:destination="@id/rolFragment" />
+            app:destination="@id/rolFragment"
+            app:popUpTo="@id/rolFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/rolRegistrarFragment"
@@ -250,7 +272,9 @@
         tools:layout="@layout/fragment_rol_registrar">
         <action
             android:id="@+id/action_rolRegistrarFragment_to_rolFragment"
-            app:destination="@id/rolFragment" />
+            app:destination="@id/rolFragment"
+            app:popUpTo="@id/rolFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/ventaInsertarFragment"
@@ -259,7 +283,9 @@
         tools:layout="@layout/fragment_venta_insertar">
         <action
             android:id="@+id/action_ventaInsertarFragment_to_nav_venta"
-            app:destination="@id/nav_venta" />
+            app:destination="@id/nav_venta"
+            app:popUpTo="@id/nav_venta"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/ventaModificarFragment"
@@ -268,6 +294,8 @@
         tools:layout="@layout/fragment_venta_modificar">
         <action
             android:id="@+id/action_ventaModificarFragment_to_nav_venta"
-            app:destination="@id/nav_venta" />
+            app:destination="@id/nav_venta"
+            app:popUpTo="@id/nav_venta"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

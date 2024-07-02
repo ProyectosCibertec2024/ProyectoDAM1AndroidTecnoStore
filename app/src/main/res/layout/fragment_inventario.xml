@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="25dp"
+    android:layout_marginTop="30sp"
     android:scrollbars="none"
     android:fadeScrollbars="false">
 
@@ -92,29 +93,6 @@
             app:iconPadding="8dp"
             android:elevation="4dp"
             android:layout_marginBottom="30dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Esta sección permite gestionar las consultas realizadas."
-            android:textSize="14sp"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:layout_marginBottom="10dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnGesConsulta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/nav_icon_consulta"
-            app:iconGravity="textStart"
-            app:cornerRadius="12dp"
-            android:backgroundTint="#e74d3c"
-            android:textColor="@android:color/white"
-            app:iconPadding="8dp"
-            android:elevation="4dp"
-            android:layout_marginBottom="30dp"
-            app:icon="@drawable/ic_search" />
 
     </LinearLayout>
 
